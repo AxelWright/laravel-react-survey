@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Htto\Request\SignupRequest;
-use App\Htto\Request\LoginRequest;
+use App\Http\Requests\SignupRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Suport\Facades\Auth;
 
