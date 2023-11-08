@@ -22,8 +22,7 @@ function classNames(...classes) {
 }
 
 export default function DefaultLayout() {
-  const { currentUser, userToken, setCurrentUser, setUserToken } =
-    useStateContext();
+  const { currentUser, userToken, setCurrentUser, setUserToken } = useStateContext();
 
   if (!userToken) {
     return <Navigate to="login" />;

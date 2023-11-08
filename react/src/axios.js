@@ -1,19 +1,20 @@
 import axios from 'axios';
+import router from './router';
 
-const aciosClient = axios.create({
-    baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`
-})
+const axiosClient = axios.create({
+    baseURL: `http://localhost:8000/api`
+});
 
 axiosClient.interceptors.request.use((config) => {
-    const token = '123'; //TODO
-    config.headers.Authorization = `Bearer `
-})
+    config.headers.Authorization = `Bearer ${localStorage.getItem('TOKEN')}`; // MUST change to Passport
+    return config;
+});
 
 axiosClient.interceptors.response.use(response => {
     return response;
-},error => {
+}, error => {
     if (error.response && error.response.status === 401) {
-        ReadableStreamDefaultController.navigate('/login')
+        router.navigate('/login')
     return error;
     }
     throw error;
